@@ -1,0 +1,61 @@
+#!/usr/bin/env python2.7
+# Licence GPLv3
+
+import requests
+import json
+import logging
+
+logging.basicConfig(format='%(asctime)-15s %(message)s', level=logging.INFO)
+
+source_file = "/etc/py-hole/adlists.default"
+config_file = "/etc/py-hole/py-hole.json"
+
+
+def uncomment(line):
+    return line.partition('#')[0].rstrip()
+
+
+def non_empty_after_uncommented(i):
+    uncommented = (uncomment(line) for line in i)
+    return [line for line in uncommented if len(line.strip()) != 0]
+
+
+def read_sources(filepath):
+    with open(filepath) as f:
+        return non_empty_after_uncommented(f)
+
+
+def load_source(url):
+    response = requests.get(url, timeout=60)
+    response.raise_for_status()
+    return response.text.split('\n')
+
+
+def hosts_from(hosts_file_or_blacklist):
+    def host_from(l):
+        r = l.split()
+        if len(r) == 1:
+            return r[0]
+        else:
+            return r[1]
+
+    return set(host_from(l) for l in non_empty_after_uncommented(hosts_file_or_blacklist))
+
+
+hosts = set()
+
+with open("/etc/py-hole/py-hole.json") as c:
+    config = json.load(c)
+
+
+for source in read_sources(source_file):
+    logging.info("Getting '%s'", source)
+    hosts.update(hosts_from(load_source(source)))
+
+logging.info("Have %s hosts to blackhole", len(hosts))
+
+with(open("/etc/py-hole/blackhole.list", "w")) as blackhole:
+    for host in hosts:
+        blackhole.write("%s\t%s\n".format(config["ip"]["v4"], host))
+
+logging.info("Complete")
