@@ -10,6 +10,8 @@ logging.basicConfig(format='%(asctime)-15s %(message)s', level=logging.INFO)
 source_file = "/etc/py-hole/adlists.default"
 config_file = "/etc/py-hole/py-hole.json"
 
+blackhole_file = "/var/lib/py-hole/blackhole.list"
+
 
 def uncomment(line):
     return line.partition('#')[0].rstrip()
@@ -54,7 +56,7 @@ for source in read_sources(source_file):
 
 logging.info("Have %s hosts to blackhole", len(hosts))
 
-with(open("/etc/py-hole/blackhole.list", "w")) as blackhole:
+with(open(blackhole_file, "w")) as blackhole:
     for host in hosts:
         blackhole.write("%s\t%s\n" % (config["ip"]["v4"], host))
 

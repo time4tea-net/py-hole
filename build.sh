@@ -23,6 +23,7 @@ fpm -t deb -s dir -n py-hole -v ${VERSION} \
     --post-uninstall deb/postuninstall.sh \
     src/=/opt/py-hole/ \
     conf/=/etc/py-hole/ \
+    var/=/var/lib/py-hole/ \
     cron.d/=/etc/cron.d/ \
     dnsmasq.d/=/etc/dnsmasq.d/
 
