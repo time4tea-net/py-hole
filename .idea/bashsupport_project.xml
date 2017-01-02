@@ -3,6 +3,7 @@
   <component name="BashSupportProjectSettings">
     <option name="globalVariables">
       <set>
+        <option value="BINTRAY_API_KEY" />
         <option value="VERSION" />
       </set>
     </option>
