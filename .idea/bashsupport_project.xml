@@ -4,6 +4,7 @@
     <option name="globalVariables">
       <set>
         <option value="BINTRAY_API_KEY" />
+        <option value="BINTRAY_GPG_PASSPHRASE" />
         <option value="VERSION" />
       </set>
     </option>
