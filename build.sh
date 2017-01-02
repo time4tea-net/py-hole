@@ -18,6 +18,9 @@ fpm -t deb -s dir -n py-hole -v ${VERSION} \
     --depends python-requests \
     --depends dnsmasq \
     --package target/distributions \
+    --post-install deb/postinstall.sh \
+    --pre-uninstall deb/preuninstall.sh \
+    --post-uninstall deb/postuninstall.sh \
     src/=/opt/py-hole/ \
     conf/=/etc/py-hole/ \
     cron.d/=/etc/cron.d/ \
