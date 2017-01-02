@@ -25,10 +25,12 @@ This is not yet ready for installation! - Unless you're feeling brave. It seems 
 
 # Install It!
 
+```
 wget -qO - 'https://bintray.com/user/downloadSubjectPublicKey?username=time4tea' | sudo apt-key add
 sudo add-apt-repository "https://dl.bintray.com/time4tea/py-hole time4tea free"
 sudo apt-get update
 sudo apt-get install py-hole
+```
 
 You may need to edit /etc/py-hole/py-hole.json to put in the address of your machine...
 
