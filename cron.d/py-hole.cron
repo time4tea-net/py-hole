@@ -2,3 +2,4 @@
 # note also that the filename for this file CANNOT contain a '.' character - man cron
 #
 10 1 * * * root /opt/py-hole/py-hole >> /var/log/py-hole.log 2>&1
+30 1 * * * root service dnsmasq reload
