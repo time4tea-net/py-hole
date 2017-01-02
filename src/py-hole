@@ -56,6 +56,6 @@ logging.info("Have %s hosts to blackhole", len(hosts))
 
 with(open("/etc/py-hole/blackhole.list", "w")) as blackhole:
     for host in hosts:
-        blackhole.write("%s\t%s\n".format(config["ip"]["v4"], host))
+        blackhole.write("%s\t%s\n" % (config["ip"]["v4"], host))
 
 logging.info("Complete")
