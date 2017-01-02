@@ -9,7 +9,7 @@ mkdir -p target/distributions
 
 fpm -t deb -s dir -n py-hole -v ${VERSION} \
     --license GPLv3 \
-    --architecture any \
+    --architecture all \
     --vendor "time4tea technology" \
     --maintainer "pyhole@time4tea.net" \
     --url "https://github.com/time4tea.net/pyhole" \
