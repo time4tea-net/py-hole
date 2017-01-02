@@ -1,1 +1,6 @@
 target/
+vagrant/.vagrant
+vagrant/*.deb
+vagrant/files/
+vagrant/*.log
+
