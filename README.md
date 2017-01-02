@@ -13,7 +13,7 @@ Thanks to the pi-hole project for much awesome work and inspiration
 
 # Pre-Alpha Quality
 
-This is not yet ready for installation!
+This is not yet ready for installation! - Unless you're feeling brave. It seems to maybe work....
 
 # Build Status
 
