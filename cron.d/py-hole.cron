@@ -1,4 +1,4 @@
 # This file uses the /etc/cron.d format, which is slightly different - it includes a user name
 # note also that the filename for this file CANNOT contain a '.' character - man cron
 #
-10 1 * * * root /opt/py-hole/py-hole 2>&1 >> /var/log/py-hole.log
+10 1 * * * root /opt/py-hole/py-hole >> /var/log/py-hole.log 2>&1
