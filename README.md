@@ -11,9 +11,19 @@ complicated.
 
 Thanks to the pi-hole project for much awesome work and inspiration
 
-# Pre-Alpha Quality
+# Install It!
 
-This is not yet ready for installation! - Unless you're feeling brave. It seems to maybe work....
+This software is *alpha* quality at best. It may not work for you, or even at all. 
+
+```
+wget -qO - 'https://bintray.com/user/downloadSubjectPublicKey?username=time4tea' | sudo apt-key add
+echo "deb https://dl.bintray.com/time4tea/py-hole time4tea free" | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install py-hole
+```
+
+You may need to edit /etc/py-hole/py-hole.json to put in the address of your machine...
+
 
 # Build Status
 
@@ -23,16 +33,7 @@ This is not yet ready for installation! - Unless you're feeling brave. It seems 
 
 [ ![Download](https://api.bintray.com/packages/time4tea/py-hole/py-hole/images/download.svg) ](https://bintray.com/time4tea/py-hole/py-hole/_latestVersion)
 
-# Install It!
 
-```
-wget -qO - 'https://bintray.com/user/downloadSubjectPublicKey?username=time4tea' | sudo apt-key add
-sudo add-apt-repository "https://dl.bintray.com/time4tea/py-hole time4tea free"
-sudo apt-get update
-sudo apt-get install py-hole
-```
-
-You may need to edit /etc/py-hole/py-hole.json to put in the address of your machine...
 
 # Configure your network to use your server as a DNS server.
 
