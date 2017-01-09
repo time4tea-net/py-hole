@@ -1,15 +1,22 @@
 # Py-Hole
 
-An ad-blocker using dnsmasq.
+py-hole is a network-level ad blocker, that blocks ads for your whole home or business network!
 
 This is a small thing inspired by pi-hole, unfortunately the installation
 of pi-hole did too many things for me, so I wanted the same thing, but less
-complicated.
+complicated. You could check out pi-hole too - it may be just the right thing for you.
 
+py-hole uses dnsmasq for its DNS resolution capabilities.
 
 # Thanks
 
 Thanks to the pi-hole project for much awesome work and inspiration
+
+# No warranty / No implied 
+
+This program comes with no warranty, we don't even imply that it is fit for the purpose of blocking ads.
+
+The program uses lists of domains on the internet that the user can configure.
 
 # Install It!
 
@@ -73,7 +80,7 @@ https://github.com/time4tea-net/py-hole/issues
 
 # Tweet It!
 
-[ Yes! ](https://twitter.com/intent/tweet/?text=py-hole+is+so+awesome&url=https%3A%2F%2Fgithub.com%2Ftime4tea-net%2Fpy-hole)
+[ Yes! ](https://twitter.com/intent/tweet/?text=py-hole+is+an+awesome+network+level+ad+blocker&url=https%3A%2F%2Fgithub.com%2Ftime4tea-net%2Fpy-hole)
 
 
 # Build Status
