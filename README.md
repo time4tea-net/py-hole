@@ -12,7 +12,7 @@ py-hole uses dnsmasq for its DNS resolution capabilities.
 
 Thanks to the pi-hole project for much awesome work and inspiration
 
-# No warranty / No implied 
+# No warranty / No implied warranty or suitability
 
 This program comes with no warranty, we don't even imply that it is fit for the purpose of blocking ads.
 
