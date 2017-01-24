@@ -78,7 +78,7 @@ sorted_hosts = list(hosts)
 sorted_hosts.sort()
 
 with(open(blackhole_file, "w")) as blackhole:
-    for host in itertools.chain(set["py-hole.blackhole.host"], hosts):
+    for host in itertools.chain({"py-hole.blackhole.host"}, hosts):
         blackhole.write("%s\t%s\n" % (config["ip"]["v4"], host))
 
 logging.info("Complete")
