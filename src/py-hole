@@ -4,13 +4,17 @@
 import requests
 import json
 import logging
+from os import path
 
 logging.basicConfig(format='%(asctime)-15s %(message)s', level=logging.INFO)
 
-source_file = "/etc/py-hole/adlists.default"
-config_file = "/etc/py-hole/py-hole.json"
-
+config_dir = "/etc/py-hole"
 blackhole_file = "/var/lib/py-hole/blackhole.list"
+
+source_file = path.join(config_dir, "adlists.default")
+config_file = path.join(config_dir, "py-hole.json")
+always_file = path.join(config_dir, "always")
+never_file = path.join(config_dir, "never")
 
 
 def uncomment(line):
@@ -33,7 +37,7 @@ def load_source(url):
     return response.text.split('\n')
 
 
-def hosts_from(hosts_file_or_blacklist):
+def hosts_from(hosts_file_or_host_list):
     def host_from(l):
         r = l.split()
         if len(r) == 1:
@@ -41,7 +45,7 @@ def hosts_from(hosts_file_or_blacklist):
         else:
             return r[1]
 
-    return set(host_from(l) for l in non_empty_after_uncommented(hosts_file_or_blacklist))
+    return set(host_from(l) for l in non_empty_after_uncommented(hosts_file_or_host_list))
 
 
 hosts = set()
@@ -49,12 +53,25 @@ hosts = set()
 with open("/etc/py-hole/py-hole.json") as c:
     config = json.load(c)
 
-
 for source in read_sources(source_file):
     logging.info("Getting '%s'", source)
     hosts.update(hosts_from(load_source(source)))
 
-logging.info("Have %s hosts to blackhole", len(hosts))
+logging.info("Have %d hosts to blackhole from sources", len(hosts))
+
+with(open(always_file)) as always:
+    always_hosts = hosts_from(always.readlines())
+
+logging.info("Adding %d hosts that must always be blackholed", len(hosts))
+hosts.update(always_hosts)
+
+with(open(never_file)) as never:
+    never_hosts = hosts_from(never.readlines())
+
+logging.info("Removing %d hosts that must never be blackholed", len(hosts))
+hosts.difference_update(never_hosts)
+
+logging.info("Have %d hosts to blackhole from sources", len(hosts))
 
 with(open(blackhole_file, "w")) as blackhole:
     for host in hosts:
