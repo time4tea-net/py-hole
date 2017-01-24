@@ -62,13 +62,13 @@ logging.info("Have %d hosts to blackhole from sources", len(hosts))
 with(open(always_file)) as always:
     always_hosts = hosts_from(always.readlines())
 
-logging.info("Adding %d hosts that must always be blackholed", len(hosts))
+logging.info("Adding %d hosts that must always be blackholed", len(always_hosts))
 hosts.update(always_hosts)
 
 with(open(never_file)) as never:
     never_hosts = hosts_from(never.readlines())
 
-logging.info("Removing %d hosts that must never be blackholed", len(hosts))
+logging.info("Removing %d hosts that must never be blackholed", len(never_hosts))
 hosts.difference_update(never_hosts)
 
 logging.info("Have %d hosts to blackhole from sources", len(hosts))
