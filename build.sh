@@ -24,6 +24,6 @@ fpm -t deb -s dir -n py-hole -v ${VERSION} \
     src/=/opt/py-hole/ \
     conf/=/etc/py-hole/ \
     var/=/var/lib/py-hole/ \
-    cron.d/=/etc/cron.d/ \
+    cron.d/py-hole.cron=/etc/cron.d/py-hole \
     dnsmasq.d/=/etc/dnsmasq.d/
 
