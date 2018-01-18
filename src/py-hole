@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 # Licence GPLv3
 
 import requests
@@ -9,7 +9,9 @@ from os import path
 
 logging.basicConfig(format='%(asctime)-15s %(message)s', level=logging.INFO)
 
+# config_dir = "conf"
 config_dir = "/etc/py-hole"
+# blackhole_file = "blackhole.list"
 blackhole_file = "/var/lib/py-hole/blackhole.list"
 
 source_file = path.join(config_dir, "adlists.default")
@@ -51,7 +53,7 @@ def hosts_from(hosts_file_or_host_list):
 
 hosts = set()
 
-with open("/etc/py-hole/py-hole.json") as c:
+with open("%s/py-hole.json" % config_dir) as c:
     config = json.load(c)
 
 for source in read_sources(source_file):

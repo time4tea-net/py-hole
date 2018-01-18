@@ -14,8 +14,8 @@ fpm -t deb -s dir -n py-hole -v ${VERSION} \
     --maintainer "pyhole@time4tea.net" \
     --url "https://github.com/time4tea.net/pyhole" \
     --description "A Small Alternative to pi-hole, in python" \
-    --depends python2.7 \
-    --depends python-requests \
+    --depends python3 \
+    --depends python3-requests \
     --depends dnsmasq \
     --package target/distributions \
     --post-install deb/postinstall.sh \

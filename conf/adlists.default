@@ -1,17 +1,24 @@
 ## py-hole default lists
 # This list is from the pi-hole
+# The below list amalgamates several lists we used previously.
 # See `https://github.com/StevenBlack/hosts` for details
+##StevenBlack's list
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 
-# Other lists we consider safe:
-http://mirror1.malwaredomains.com/files/justdomains
+##MalwareDomains
+https://mirror1.malwaredomains.com/files/justdomains
+
+##Cameleon
 http://sysctl.org/cameleon/hosts
+
+##Zeustracker
 https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist
+
+##Disconnect.me Tracking
 https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+
+##Disconnect.me Ads
 https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
 
-# hosts-file.net list. Updated frequently, but has been known to block legitimate sites.
+##Hosts-file.net
 https://hosts-file.net/ad_servers.txt
-
-# Quidsup's tracker list
-https://raw.githubusercontent.com/quidsup/notrack/master/trackers.txt

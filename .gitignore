@@ -4,3 +4,4 @@ vagrant/*.deb
 vagrant/files/
 vagrant/*.log
 
+blackhole.list
