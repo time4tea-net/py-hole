@@ -85,7 +85,6 @@ https://github.com/time4tea-net/py-hole/issues
 
 # Build Status
 
-[ ![Codeship Status for time4tea-net/py-hole](https://app.codeship.com/projects/f0842f50-b2ab-0134-db15-5a75b35ed8ee/status?branch=master)](https://app.codeship.com/projects/193330)
 
 # Download it!
 

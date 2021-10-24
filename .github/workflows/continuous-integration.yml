@@ -1,0 +1,23 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  continuous-integration:
+    runs-on: ubuntu-latest
+    environment:
+      name: continuous-integration
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - name: Install Packages
+        run:  |
+          gem install fpm
+      - name: Build Package
+        env:
+          VERSION: 0.1.${{ env.GITHUB_RUN_NUMBER }}
+        run:  ./build.sh
