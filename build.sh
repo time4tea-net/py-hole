@@ -7,6 +7,8 @@ rm -rf target
 
 mkdir -p target/distributions
 
+echo "Building version '$VERSION'"
+
 fpm -t deb -s dir -n py-hole -v ${VERSION} \
     --license GPLv3 \
     --architecture all \
