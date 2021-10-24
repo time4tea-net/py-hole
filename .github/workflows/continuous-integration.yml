@@ -19,5 +19,5 @@ jobs:
           sudo gem install fpm
       - name: Build Package
         env:
-          VERSION: 0.1.$GITHUB_RUN_NUMBER
+          VERSION: 0.1.${{GITHUB_RUN_NUMBER}}
         run:  ./build.sh
