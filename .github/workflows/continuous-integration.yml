@@ -19,5 +19,5 @@ jobs:
           sudo gem install --no-document fpm
       - name: Build Package
         env:
-          VERSION: 0.1.${{ env.GITHUB_RUN_NUMBER }}
+          VERSION: 0.1.${{ env.GITHUB_RUN_ID }}
         run:  ./build.sh
