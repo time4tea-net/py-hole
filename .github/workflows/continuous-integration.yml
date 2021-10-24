@@ -19,4 +19,4 @@ jobs:
           sudo gem install --no-document fpm
       - name: Build Package
         run:  |
-        ./build.sh
+          ./build.sh
