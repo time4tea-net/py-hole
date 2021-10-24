@@ -18,4 +18,5 @@ jobs:
         run:  |
           sudo gem install --no-document fpm
       - name: Build Package
-        run:  VERSION=0.1.$GITHUB_RUN_ID ./build.sh
+        run:  |
+        ./build.sh
