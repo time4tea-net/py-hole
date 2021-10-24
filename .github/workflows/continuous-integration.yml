@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 2
       - name: Install Packages
         run:  |
-          gem install fpm
+          sudo gem install fpm
       - name: Build Package
         env:
           VERSION: 0.1.${{ env.GITHUB_RUN_NUMBER }}
