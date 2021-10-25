@@ -72,6 +72,53 @@ Address: 172.217.23.14
 You'll need to configure your DHCP server, which may be your DSL router, to give out the address of the py-hole
 box as the DNS server, rather than the ISP defaults.
 
+### More information on configuration
+
+You'll need to make sure that dnsmasq is set up how you want it. This will vary according to your own needs. Here are 
+some configuration snippets. You'll probably need to set up the server.conf file below, at a minimum.
+
+#### /etc/dnsmasq.d/server.conf
+```text
+# use these servers as main resolvers
+server=208.67.222.222
+server=208.67.220.220
+```
+
+#### /etc/dnsmasq.d/localdomain.conf
+```text
+# file cotaining names of hosts on the local network
+addn-hosts=/etc/hosts.mine
+
+# Set this (and domain: see below) if you want to have a domain
+# automatically added to simple names in a hosts-file.
+expand-hosts
+
+# Set the domain for dnsmasq. this is optional, but if it is set, it
+# does the following things.
+# 1) Allows DHCP hosts to have fully qualified domain names, as long
+#     as the domain part matches this setting.
+# 2) Sets the "domain" DHCP option thereby potentially setting the
+#    domain of all systems configured by DHCP
+# 3) Provides the domain part for "expand-hosts"
+domain=mydomain.net
+```
+
+dnsmasq can be configured to be the DHCP server for you network, which has some benefits.
+
+#### /etc/dnsmasq.d/dhcp.con
+````text
+domain=mydomain.net
+local=/mydomain.net/
+
+dhcp-option=option:router,192.168.0.1
+
+dhcp-range=192.168.0.50,192.168.0.240,12h
+
+# fixed ips
+dhcp-host=aa:aa:aa:aa:aa:aa,somehost,192.168.0.x,24h
+dhcp-host=bb:bb:bb:bb:bb:bb,anotherhost,192.168.0.y,24h
+````
+
 # Report It!
 
 If you've got feedback, please tell me at the github issues page:
