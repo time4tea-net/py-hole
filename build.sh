@@ -17,7 +17,7 @@ fpm -t deb -s dir -n py-hole -v ${VERSION} \
     --architecture all \
     --vendor "time4tea technology" \
     --maintainer "pyhole@time4tea.net" \
-    --url "https://github.com/time4tea.net/pyhole" \
+    --url "https://github.com/time4tea-net/py-hole" \
     --description "A Small Alternative to pi-hole, in python" \
     --depends python3 \
     --depends python3-requests \
