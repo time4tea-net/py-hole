@@ -20,11 +20,11 @@ The program uses lists of domains on the internet that the user can configure.
 
 # Install It!
 
-This software is *alpha* quality at best. It may not work for you, or even at all. 
+This software is beta quality. It has been used on a number of small networks for many years with no issues. 
 
 ```
-wget -qO - 'https://bintray.com/user/downloadSubjectPublicKey?username=time4tea' | sudo apt-key add
-echo "deb https://dl.bintray.com/time4tea/py-hole time4tea free" | sudo tee -a /etc/apt/sources.list
+curl -L https://packagecloud.io/time4tea/py-hole/gpgkey | sudo apt-key add -
+echo "deb https://packagecloud.io/time4tea/py-hole/any/ any main" | sudo tee /etc/apt/sources.list.d/time4tea_py-hole.list
 sudo apt-get update
 sudo apt-get install py-hole
 ```
@@ -56,7 +56,7 @@ machine on your network
 nslookup google.com 192.168.0.1
 ```
 
-If its working, it should print something like:
+If it is working, it should print something like:
 
 ```
 Server:		192.168.0.1
@@ -82,13 +82,12 @@ https://github.com/time4tea-net/py-hole/issues
 
 [ Yes! ](https://twitter.com/intent/tweet/?text=py-hole+is+an+awesome+network+level+ad+blocker&url=https%3A%2F%2Fgithub.com%2Ftime4tea-net%2Fpy-hole)
 
-
 # Build Status
 
+[![Build and Deploy](https://github.com/time4tea-net/py-hole/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/time4tea-net/py-hole/actions/workflows/continuous-integration.yml)
 
 # Download it!
 
-[ ![Download](https://api.bintray.com/packages/time4tea/py-hole/py-hole/images/download.svg) ](https://bintray.com/time4tea/py-hole/py-hole/_latestVersion)
-
+https://packagecloud.io/time4tea/py-hole
 
 
