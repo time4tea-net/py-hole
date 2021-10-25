@@ -23,8 +23,8 @@ jobs:
           ./build.sh
       - name: Sign Packages
         env:
-          GPG_PRIVATE_KEY: ${{ secret.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secret.GPG_PASSPHRASE }}
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run:  |
           ./import-key.sh
           ./sign.sh
