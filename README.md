@@ -119,6 +119,21 @@ dhcp-host=aa:aa:aa:aa:aa:aa,somehost,192.168.0.x,24h
 dhcp-host=bb:bb:bb:bb:bb:bb,anotherhost,192.168.0.y,24h
 ````
 
+## Notes for ubuntu
+
+Ubuntu comes with the horrible systemd. You might be able to get it to stop by doing the following (seems to work on LTS 20)
+
+```shell
+sudo systemctl disable systemd-resolved
+sudo systemctl stop systemd-resolved
+```
+
+and then edit `/etc/resolv.conf` to be
+
+`
+nameserver 127.0.0.1
+`
+
 # Report It!
 
 If you've got feedback, please tell me at the github issues page:
