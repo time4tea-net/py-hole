@@ -29,3 +29,10 @@ jobs:
           ./import-key.sh
           ./sign.sh
           ./clear-agent.sh
+      - name: Upload to PackageCloud
+        env:
+          PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
+        run:
+          sudo gem install --no-document package_cloud
+          ./upload.sh
+
