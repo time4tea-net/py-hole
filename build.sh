@@ -7,12 +7,10 @@ rm -rf target
 
 mkdir -p target/distributions
 
-if [ "$CI" != "" ]
-then
-  VERSION=0.1.${GITHUB_RUN_NUMBER}
-fi
 
-echo "Building version '$VERSION'"
+. ./set-version.sh
+
+echo "Building version '${VERSION:?not set}'"
 
 fpm -t deb -s dir -n py-hole -v ${VERSION} \
     --license GPLv3 \

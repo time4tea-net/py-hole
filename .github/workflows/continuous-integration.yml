@@ -17,6 +17,15 @@ jobs:
       - name: Install Packages
         run:  |
           sudo gem install --no-document fpm
+          sudo apt-get install -y debsigs gpg
       - name: Build Package
         run:  |
           ./build.sh
+      - name: Sign Packages
+        env:
+          GPG_PRIVATE_KEY: ${{ secret.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secret.GPG_PASSPHRASE }}
+        run:  |
+          ./import-key.sh
+          ./sign.sh
+
