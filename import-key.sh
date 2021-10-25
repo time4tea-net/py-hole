@@ -7,8 +7,8 @@ mkdir -p ~/.gnupg
 chmod 700 ~/.gnupg
 echo "allow-loopback-pinentry" > ~/.gnupg/gpg-agent.conf
 
-# Restart gpg-agent to allow above setting to take effect
-gpg-connect-agent reloadagent /bye
+./clear-agent.sh
+
 #Import key - you don't need a passphrase at this point
 echo $GPG_PRIVATE_KEY | base64 --decode | gpg --batch --yes --import
 

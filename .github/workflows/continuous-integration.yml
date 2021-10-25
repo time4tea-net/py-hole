@@ -28,4 +28,4 @@ jobs:
         run:  |
           ./import-key.sh
           ./sign.sh
-
+          ./clear-agent.sh
