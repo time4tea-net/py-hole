@@ -153,3 +153,21 @@ https://github.com/time4tea-net/py-hole/issues
 https://packagecloud.io/time4tea/py-hole
 
 
+# Installing on OpenWRT Routers
+
+You can install this on an OpenWRT router to give yourself a break from malware and ads...
+
+It's a bit manual, but perhaps somebody can package this in the OpenWrt style?
+
+- It requires that your have python3 installed, and are using dnsmasq.
+
+- Clone the repo
+- Run `./build-tar.sh`
+- Copy this to your open wrt server, and log in to it
+- run `tar zxf <filename> -C /`
+- run `cat /tmp/pyhole-example-crontab.txt` and copy the lines
+- run `crontab -e` and insert the lines you copied
+- Go to the "Network/DHCP & DNS" in the UI and add "Additional Hosts file" of "/var/lib/py-hole/blackhole.list"
+
+
+
