@@ -162,7 +162,7 @@ It's a bit manual, but perhaps somebody can package this in the OpenWrt style?
 - It requires that your have python3 installed, and are using dnsmasq.
 
 - Clone the repo
-- Run `./build-tar.sh`
+- Run `./build-tar.sh`  - this will build `py-hole-SNAPSHOT.tar.gz`
 - Copy this to your open wrt server, and log in to it
 - run `tar zxf <filename> -C /`
 - run `cat /tmp/pyhole-example-crontab.txt` and copy the lines
