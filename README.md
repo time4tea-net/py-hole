@@ -37,8 +37,7 @@ that if your py-hole box is also your DSL gateway all your current firewall sett
 
 # Configure It!
 
-You may need to edit /etc/py-hole/py-hole.json to put in the address of your py-hole machine... if you change it then
-run
+Not much config is required. You can edit the `always` and `never` files to either always or never block a particular domain.
 
 ```
 sudo /opt/py-hole/py-hole
